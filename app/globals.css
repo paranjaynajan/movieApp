@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: "myfont";
+  src:  url('../public/assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+}
+* {
+  font-family: "myfont";
+  
+}
