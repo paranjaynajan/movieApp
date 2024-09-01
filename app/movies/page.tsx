@@ -71,13 +71,13 @@ const Movies = () => {
     return (
         <div className="p-8 sm:py-10 sm:px-20 lg:py-20 lg:px-40 flex flex-col gap-10 md:gap-20 min-h-[calc(100vh-200px)]">
             <div className="flex justify-between items-center text-white">
-                <div className="flex items-center justify-center gap-5">
+                <div className="flex items-center justify-center gap-2 sm:gap-5">
                     <h1 className="text-[16px] md:text-[32px] text-white font-[500]">
                         My movies
                     </h1>
                     <Image src={AddIcon} width={30} height={30} alt="add" className="cursor-pointer" onClick={handleNew} />
                 </div>
-                <div className="cursor-pointer flex items-center justify-center gap-5" onClick={logout}>
+                <div className="cursor-pointer flex items-center justify-center gap-2 sm:gap-5" onClick={logout}>
                     <h4>
                         Logout
                     </h4>
@@ -91,7 +91,7 @@ const Movies = () => {
                     <div className="text-white text-center">{error}</div>
                 ) : (
                     <div className="flex flex-col gap-20">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 place-items-center lg:grid-cols-4 gap-10">
+                        <div className="grid grid-cols-2  md:grid-cols-3 place-items-center lg:grid-cols-4 gap-5 md:gap-10">
                             {movies.map((movie, index: number) => (
                                 <div key={index} onClick={() => handleEdit(movie.id)} className="flex justify-center">
                                     <Card

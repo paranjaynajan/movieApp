@@ -18,7 +18,7 @@ const Card: React.FC<MovieCardProps> = ({ title, year, imageSrc }) => {
         height={600}
       />
       <div className="p-4 flex flex-col gap-3">
-        <h2 className="text-white text-[20px] font-medium">{title}</h2>
+        <h2 className="text-white text-[16px] md:text-[20px] font-medium">{title}</h2>
         <p className="text-white text-[14px]">{year}</p>
       </div>
     </div>

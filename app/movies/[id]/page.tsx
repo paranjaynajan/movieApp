@@ -63,6 +63,23 @@ const EditMovie = () => {
 
     const updateMovie = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault()
+        const newErrors = {
+            title: "",
+            year: "",
+        };
+        let isValid = true
+        if (!movieData.title) {
+          isValid = false
+          newErrors.title = "Title is required."
+        }
+    
+        if (!movieData.year) {
+          isValid = false
+          newErrors.year = "Year is required."
+        }
+    
+        setError(newErrors)
+        if(isValid) {
         const index = moviesData.findIndex(m => m.id === movieId);
         if (index !== -1) {
             moviesData[index] = movieData;
@@ -71,9 +88,27 @@ const EditMovie = () => {
             setErrorApi("Movie not found, could not update.");
         }
     }
+    }
 
     const createMovie = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        const newErrors = {
+            title: "",
+            year: "",
+        };
+        let isValid = true
+        if (!movieData.title) {
+          isValid = false
+          newErrors.title = "Title is required."
+        }
+    
+        if (!movieData.year) {
+          isValid = false
+          newErrors.year = "Year is required."
+        }
+    
+        setError(newErrors)
+        if(isValid) {
 
         const newMovie = {
             ...movieData,
@@ -83,6 +118,7 @@ const EditMovie = () => {
 
         moviesData.push(newMovie);
         alert("Movie added successfully!")
+    }
 
     }
     const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
