@@ -4,7 +4,7 @@ import PrimaryButton from "@/app/components/ButtonPrimary/ButtonPrimary";
 import SecondaryButton from "@/app/components/ButtonSecondary/ButtonSecondary";
 import InputFieldPrimary from "@/app/components/InputPrimary/InputPrimary";
 import Download from "@/public/assets/svg/download.svg"
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useState } from "react"
 import movie2 from "@/public/assets/images/image_2.png"
 import moviesData, { IMovie } from "@/app/utils/dummyData";
@@ -13,6 +13,7 @@ const EditMovie = () => {
     const [movieId, setMovieId] = useState<null | number>(null)
     const [loading, setLoading] = useState<boolean>(true)
     const [errorApi, setErrorApi] = useState<string>("")
+    const router =useRouter()
     const [errors, setError] = useState({
         title: "",
         year: "",
@@ -83,6 +84,7 @@ const EditMovie = () => {
         const index = moviesData.findIndex(m => m.id === movieId);
         if (index !== -1) {
             moviesData[index] = movieData;
+            router.push("/movies")
             alert("Movie updated!")
         } else {
             setErrorApi("Movie not found, could not update.");
@@ -117,6 +119,7 @@ const EditMovie = () => {
         };
 
         moviesData.push(newMovie);
+        router.push("/movies")
         alert("Movie added successfully!")
     }
 
